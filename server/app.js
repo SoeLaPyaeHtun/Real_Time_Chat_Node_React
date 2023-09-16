@@ -9,6 +9,7 @@ const { db } = require('./config/database')
 
 //third-party module
 var mongoose = require('mongoose');
+var cors = require('cors')
 
 
 var indexRouter = require('./routes/index');
@@ -16,10 +17,15 @@ var usersRouter = require('./routes/userRoute');
 
 var app = express();
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
+app.use(cors())
+app.options('*', cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

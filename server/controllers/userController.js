@@ -12,10 +12,10 @@ async function userRegister(req, res, next) {
         email,
         password
     } = req.body;
-    if (!name || !email || !password) return res.status(404).json("All fields are required");
+    if (!name || !email || !password) return res.status(400).json("All fields are required");
 
-    if (!validator.isEmail(email)) return res.status(404).json("Email must be validate");
-    if (!validator.isStrongPassword(password)) return res.status(404).json("Password Must be strong");
+    if (!validator.isEmail(email)) return res.status(400).json("Email must be validate");
+    if (!validator.isStrongPassword(password)) return res.status(400).json("Password Must be strong");
     try {
         let result = await userService.userRegister(name, email, password)
 

@@ -37,6 +37,7 @@ export const AuthContextProvider = ({children}) => {
     const logoutUser = () => {
         localStorage.removeItem("User")
         setUser(null)
+        navigate('/login')
     }
 
     const registerUser = useCallback(async () => {

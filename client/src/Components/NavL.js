@@ -142,9 +142,9 @@ function Content() {
           }
         }}
       >
-        <Routes location={displayLocation}> 
+        <Routes location={displayLocation}>
             <Route path="/" element="" />
-            <Route path="/chat" element={ user ? <Chat /> : <Navigate to="/login" replace/>} />
+            <Route path="/chat" element={ user ? <Chat /> : <Login />} />
             <Route path="/register" element={ user ? <Navigate to="/chat" replace/> : <Register />} />
             <Route path="/login" element={ user ? <Navigate to="/chat" replace/> : <Login />} />
         </Routes>
